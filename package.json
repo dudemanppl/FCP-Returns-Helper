@@ -1,14 +1,13 @@
 {
   "name": "FCP-Returns-Helper",
   "packageManager": "yarn@4.6.0",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   }
 }
