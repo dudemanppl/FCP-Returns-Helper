@@ -2,9 +2,11 @@ import type { ItemInfo } from "./index.types.js";
 
 class FCPReturns {
   allItems: Record<string, ItemInfo>;
+  returnEligibleItems: string[];
 
   constructor() {
     this.allItems = {};
+    this.returnEligibleItems = [];
   }
 
   getReturnForm(): HTMLUListElement {
@@ -125,14 +127,27 @@ class FCPReturns {
     }
   }
 
-  init(): Record<string, ItemInfo> {
+  sortItems(): void {
+    for (const [
+      itemSuffix,
+      {
+        orders: { length },
+      },
+    ] of Object.entries(this.allItems)) {
+      if (length > 1) this.returnEligibleItems.push(itemSuffix);
+    }
+  }
+
+  init(): any {
     const previousOrders = this.getPreviousOrders();
 
     for (const order of previousOrders) {
       this.parseOrder(order);
     }
 
-    return this.allItems;
+    this.sortItems();
+
+    return this.returnEligibleItems;
   }
 }
 
