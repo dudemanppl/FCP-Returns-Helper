@@ -1,4 +1,13 @@
-export type OrderDetails = {
+export interface OrderInfo {
   orderNumber: string;
-  orderDate: Date;
-};
+  itemQty: number;
+  orderRow: HTMLTableRowElement;
+}
+
+export interface ItemInfo {
+  itemUrl: string;
+  itemImgUrl: string;
+  itemName: string;
+  totalQty: number;
+  orders: OrderInfo[];
+}
