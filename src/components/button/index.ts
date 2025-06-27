@@ -1,4 +1,3 @@
-import { styleButton } from "./button.styles.js";
 import { attachButtonEvents } from "./button.events.js";
 import { injectModal } from "../modal/index.js";
 
