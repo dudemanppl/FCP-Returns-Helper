@@ -1,6 +1,8 @@
-import { addButton, getElementByClass } from "./dom-utils.js";
+import { getElementByClass } from "./dom-utils.js";
 import { getItemName, getItemSuffix } from "./item-parser.js";
 import { createItemInfo, addOrderToItem } from "./item-model.js";
+import { addButton } from "./components/index.js";
+
 import type { ItemInfo } from "./index.types.js";
 
 export class FCPReturns {
@@ -73,9 +75,7 @@ export class FCPReturns {
     //   this.parseOrder(order);
     // }
     // this.sortItems();
-
     addButton();
-
     // return this.returnEligibleItems;
   }
 }
