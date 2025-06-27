@@ -1,11 +1,11 @@
-import { getElementByClass } from "./dom-utils.js";
+import { addButton, getElementByClass } from "./dom-utils.js";
 import { getItemName, getItemSuffix } from "./item-parser.js";
 import { createItemInfo, addOrderToItem } from "./item-model.js";
 import type { ItemInfo } from "./index.types.js";
 
 export class FCPReturns {
   allItems: Record<string, ItemInfo> = {};
-  returnEligibleItems: string[] = [];
+  returnEligibleItems: Record<string, ItemInfo> = {};
 
   getReturnForm(): HTMLUListElement {
     return getElementByClass<HTMLUListElement>("retForm__list accordion");
@@ -60,19 +60,22 @@ export class FCPReturns {
   }
 
   sortItems(): void {
-    for (const [itemSuffix, { orders }] of Object.entries(this.allItems)) {
-      if (orders.length > 1) {
-        this.returnEligibleItems.push(itemSuffix);
+    for (const [itemSuffix, itemData] of Object.entries(this.allItems)) {
+      if (itemData.orders.length > 1) {
+        this.returnEligibleItems[itemSuffix] = itemData;
       }
     }
   }
 
-  init(): any {
-    const previousOrders = this.getPreviousOrders();
-    for (const order of previousOrders) {
-      this.parseOrder(order);
-    }
-    this.sortItems();
-    return this.allItems;
+  init(): void {
+    // const previousOrders = this.getPreviousOrders();
+    // for (const order of previousOrders) {
+    //   this.parseOrder(order);
+    // }
+    // this.sortItems();
+
+    addButton();
+
+    // return this.returnEligibleItems;
   }
 }
