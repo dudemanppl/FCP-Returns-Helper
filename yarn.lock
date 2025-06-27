@@ -425,7 +425,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "FCP-Returns-Helper@workspace:."
   dependencies:
-    esbuild: "npm:^0.25.5"
     tsup: "npm:^8.5.0"
     typescript: "npm:^5.8.3"
   languageName: unknown
@@ -665,7 +664,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.25.0, esbuild@npm:^0.25.5":
+"esbuild@npm:^0.25.0":
   version: 0.25.5
   resolution: "esbuild@npm:0.25.5"
   dependencies:
