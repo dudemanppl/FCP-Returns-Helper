@@ -35,8 +35,9 @@ export class ReturnHelperButton {
     const button: HTMLButtonElement = document.createElement("button");
     button.type = "button";
     button.textContent = "Open Returns Helper";
+    button.classList.add("primaryButton", "returns-button");
 
-    styleButton(button);
+    // styleButton(button);
     attachButtonEvents(button);
 
     returnForm.prepend(button);

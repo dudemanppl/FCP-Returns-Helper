@@ -1,17 +1,3 @@
-export function styleTable(el: HTMLTableElement): void {
-  Object.assign(el.style, {
-    width: "100%",
-    borderCollapse: "collapse",
-  });
-}
-
-export function styleTableHeaderCell(el: HTMLTableCellElement): void {
-  Object.assign(el.style, {
-    textAlign: "left",
-    padding: "0.5rem",
-  });
-}
-
 export function styleTableCell(el: HTMLTableCellElement): void {
   Object.assign(el.style, {
     padding: "0.5rem",
@@ -26,11 +12,30 @@ export function styleItemContainer(el: HTMLElement): void {
   });
 }
 
-export function styleItemLink(el: HTMLAnchorElement): void {
-  Object.assign(el.style, {
-    fontWeight: "bold",
-    color: "#0070f3",
-  });
+export function styleTextWrapper(): void {
+  const style = document.createElement("style");
+  style.textContent = `
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+  `;
+
+  document.head.appendChild(style);
+}
+
+export function styleItemLink(): void {
+  const style = document.createElement("style");
+  style.textContent = `
+    .item-link {
+      font-weight: bold;
+      color: rgb(0, 112, 243);
+      white-space: nowrap;
+    }
+  `;
+
+  document.head.appendChild(style);
 }
 
 export function styleItemSuffix(el: HTMLElement): void {
