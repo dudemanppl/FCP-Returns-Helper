@@ -1,4 +1,4 @@
-import { FCPReturns } from "./fcp-returns.js";
+import { FCPReturns } from "./core/fcp-returns.js";
 
 const returns = new FCPReturns();
 

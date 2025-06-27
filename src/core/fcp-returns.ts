@@ -1,7 +1,7 @@
 import { getElementByClass } from "./dom-utils.js";
 import { getItemName, getItemSuffix } from "./item-parser.js";
 import { createItemInfo, addOrderToItem } from "./item-model.js";
-import { addButton } from "./components/index.js";
+import { addButton } from "../components/index.js";
 
 import type { ItemInfo } from "./index.types.js";
 
