@@ -2,8 +2,8 @@ export function applyStyles(): void {
   const style = document.createElement("style");
   style.textContent = `
         .primaryButton.returns-button {
-            margin-bottom: 10px;
             align-self: center;
+            margin-bottom: 10px;
             width: unset;
         }
 
@@ -32,18 +32,18 @@ export function applyStyles(): void {
         }
 
         .returns-modal-close {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
             background-color: #aaa;
+            border-radius: 50%;
             border: none;
-            font-size: 1.25rem;
-            font-weight: bold;
             color: #fff;
             cursor: pointer;
+            font-size: 1.25rem;
+            font-weight: bold;
+            height: 2rem;
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            width: 2rem;
         }
 
         .returns-modal-close:hover,
@@ -53,6 +53,24 @@ export function applyStyles(): void {
 
         #returns-helper-modal *::-webkit-scrollbar {
             display: none;
+        }
+
+        .text-wrapper {
+            align-items: start;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-link {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .item-detail-container {
+            align-items: center;
+            display: flex;
+            gap: 1rem;
+            height: 100px;
         }
     `;
 
