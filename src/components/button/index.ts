@@ -40,6 +40,6 @@ export class ReturnHelperButton {
     attachButtonEvents(button);
 
     returnForm.prepend(button);
-    injectModal();
+    injectModal(this.returnEligibleItems);
   }
 }

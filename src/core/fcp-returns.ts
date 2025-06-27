@@ -81,6 +81,14 @@ export class FCPReturns {
       returnEligibleItems: this.returnEligibleItems,
     });
 
+    const style = document.createElement("style");
+    style.textContent = `
+      #returns-helper-modal *::-webkit-scrollbar {
+        display: none;
+      }
+    `;
+    document.head.appendChild(style);
+
     button.render();
   }
 }
