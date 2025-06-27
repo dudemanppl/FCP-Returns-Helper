@@ -2,9 +2,9 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: {
-    content: "src/index.ts", // becomes dist/public/content.js
+    content: "src/index.ts",
   },
-  outDir: "dist/public",
+  outDir: "dist",
   format: ["esm"],
   target: "esnext",
   minify: true,
@@ -12,7 +12,7 @@ export default defineConfig({
   minifyIdentifiers: true,
   minifyWhitespace: true,
   treeshake: true,
-  clean: false, // don't wipe manifest.json
+  clean: false,
   splitting: false,
   dts: false,
 });
