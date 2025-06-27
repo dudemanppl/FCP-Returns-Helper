@@ -1,7 +1,7 @@
 import { getElementByClass } from "./dom-utils.js";
 import { getItemName, getItemSuffix } from "./item-parser.js";
 import { createItemInfo, addOrderToItem } from "./item-model.js";
-import { addButton } from "../components/index.js";
+import { ReturnHelperButton } from "../components/index.js";
 
 import type { ItemInfo } from "./index.types.js";
 
@@ -70,12 +70,17 @@ export class FCPReturns {
   }
 
   init(): void {
-    // const previousOrders = this.getPreviousOrders();
-    // for (const order of previousOrders) {
-    //   this.parseOrder(order);
-    // }
-    // this.sortItems();
-    addButton();
-    // return this.returnEligibleItems;
+    const previousOrders = this.getPreviousOrders();
+    for (const order of previousOrders) {
+      this.parseOrder(order);
+    }
+    this.sortItems();
+
+    const button = new ReturnHelperButton({
+      allItems: this.allItems,
+      returnEligibleItems: this.returnEligibleItems,
+    });
+
+    button.render();
   }
 }

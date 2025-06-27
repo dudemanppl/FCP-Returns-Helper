@@ -2,26 +2,44 @@ import { styleButton } from "./button.styles.js";
 import { attachButtonEvents } from "./button.events.js";
 import { injectModal } from "../modal/index.js";
 
-export function addButton(): void {
-  const returnForm = document.querySelector(
-    "body > div.main > div > div.retForm"
-  ) as HTMLElement | null;
+import type { ItemInfo } from "../../core/index.types.js";
 
-  if (!returnForm) {
-    console.error("returnForm element not found");
-    return;
+export class ReturnHelperButton {
+  private allItems: Record<string, ItemInfo>;
+  private returnEligibleItems: Record<string, ItemInfo>;
+
+  constructor({
+    allItems,
+    returnEligibleItems,
+  }: {
+    allItems: Record<string, ItemInfo>;
+    returnEligibleItems: Record<string, ItemInfo>;
+  }) {
+    this.allItems = allItems;
+    this.returnEligibleItems = returnEligibleItems;
   }
 
-  returnForm.style.display = "flex";
-  returnForm.style.flexDirection = "column";
+  public render(): void {
+    const returnForm = document.querySelector(
+      "body > div.main > div > div.retForm"
+    ) as HTMLElement | null;
 
-  const button: HTMLButtonElement = document.createElement("button");
-  button.type = "button";
-  button.textContent = "Open Returns Helper";
+    if (!returnForm) {
+      console.error("returnForm element not found");
+      return;
+    }
 
-  styleButton(button);
-  attachButtonEvents(button);
+    returnForm.style.display = "flex";
+    returnForm.style.flexDirection = "column";
 
-  returnForm.prepend(button);
-  injectModal();
+    const button: HTMLButtonElement = document.createElement("button");
+    button.type = "button";
+    button.textContent = "Open Returns Helper";
+
+    styleButton(button);
+    attachButtonEvents(button);
+
+    returnForm.prepend(button);
+    injectModal();
+  }
 }

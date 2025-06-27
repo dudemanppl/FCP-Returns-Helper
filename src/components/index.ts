@@ -1,4 +1,4 @@
 import { injectModal } from "./modal/index.js";
-import { addButton } from "./button/index.js";
+import { ReturnHelperButton } from "./button/index.js";
 
-export { injectModal, addButton };
+export { injectModal, ReturnHelperButton };
